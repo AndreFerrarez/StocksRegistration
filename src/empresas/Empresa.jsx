@@ -18,16 +18,21 @@ export default function Empresa(){
     console.log(descricao);
 
     const sendDataToApi = () =>{
+        if(codigo, nome, valor, descricao){
         axios.post(`https://64352f2483a30bc9ad5a058c.mockapi.io/StockCheck`, {
             codigo,
             nome,
             valor,
             descricao
-        })
+        }, alert("Acao registrada com sucesso")); }
+        else {
+            alert("Preencha todos os campos.")
+        };
     }
 
     return (
         <div className="container-analise">      
+            <form>
                       
                 <div className='box-empresa' >
                     <label>Codigo Da Empresa...</label><br/>
@@ -35,6 +40,7 @@ export default function Empresa(){
                         className='codigo'
                         onChange={(e) => setCodigo(e.target.value)}
                         type='text'placeholder='Codigo da empresa' />
+                        
                 </div>
                 <div className='box-empresa'>
                     <label>Nome Da Empresa...</label><br/>
@@ -58,12 +64,17 @@ export default function Empresa(){
                         rows="4" cols="50" 
                         form="usrform"></textarea>
                 </div>
+            
+            
                 <button 
                     className='analise-btn-enviar' 
                     onClick={sendDataToApi}
                     type='submit' >
                         Salvar
                 </button>  
+            </form>
+
+            
             
         </div>
         
